@@ -20,7 +20,6 @@
 
 #include <cutils/log.h>
 
-#include <stdlib.h>
 #include <stdint.h>
 #include <string.h>
 #include <unistd.h>
@@ -166,13 +165,6 @@ set_speaker_light_locked(struct light_device_t* dev,
     int red, green, blue;
     int onMS, offMS;
     unsigned int colorRGB;
-
-    if (state == NULL) {
-        write_int(RED_BLINK_FILE, 0);
-        write_int(GREEN_BLINK_FILE, 0);
-        write_int(BLUE_BLINK_FILE, 0);
-        return 0;
-    }
 
     switch (state->flashMode) {
         case LIGHT_FLASH_TIMED:
